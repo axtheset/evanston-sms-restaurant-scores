@@ -1,13 +1,11 @@
-require 'rubygems'
 require 'twilio-ruby'
 require 'sinatra'
 require 'httparty'
-require 'json'
  
 get '/healthscores' do
   sender = params[:From]
   body = params[:Body]
-  body.gsub!("'","''") # Handles when a single quote is in name like Wendy's
+  restaurant_name = body.gsub("'","") # Handles when a single quote is in name like Wendy's
 
   # Basic setup of api endpoint, datasets and headers for requests
   civic_data_url = 'http://www.civicdata.com/api/action/datastore_search_sql'
@@ -16,8 +14,8 @@ get '/healthscores' do
   headers = { 'Content-Type' =>'application/json', 'Accept' => 'application/json'}
 
   # Query a list of businesses based on body of SMS
-  businesses_query = "SELECT * from \"#{businesses_resource_id}\" where upper(\"name\") LIKE '#{body.upcase}%'"
-  @businesses_data = HTTParty.get(civic_data_url, :headers => headers, :query => {:sql => businesses_query}) #URI::encode(query)  
+  businesses_query = "SELECT * from \"#{businesses_resource_id}\" where upper(replace(\"name\",$$'$$,$$$$)) LIKE '#{restaurant_name.upcase}%'"
+  @businesses_data = HTTParty.get(civic_data_url, :headers => headers, :query => {:sql => businesses_query})
   business_data = @businesses_data.parsed_response["result"]["records"]
   
   if business_data.any? # If data is returned
