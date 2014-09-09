@@ -40,7 +40,7 @@ get '/healthscores' do
     message = "Restaurant Name: #{restaurant['name']}\n"
     message += "Address: #{restaurant["address"].split(" ").map(&:capitalize).join(" ")}, #{restaurant["city"]} #{restaurant["state"]}, #{restaurant["postal_code"]}\n"
     message += "Last Inspection Date: #{inspection_date.strftime("%m/%d/%Y")}\n"
-    message += "Health Score: #{latest_inspection['score']}"
+    message += "Health Score: #{latest_inspection['score']}/100"
     
   else #No business found
     message = "No restaurant found with the name #{body}"
