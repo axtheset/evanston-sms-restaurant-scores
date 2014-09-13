@@ -10,7 +10,7 @@ get '/healthscores' do
   # Basic setup of api endpoint, datasets and headers for requests
   civic_data_url = 'http://www.civicdata.com/api/action/datastore_search_sql'
   businesses_resource_id = '386efa42-7a88-4b0a-8c3e-50add92e9369'
-  inspections_resource_id = 'b5a32cf2-3bf3-47ae-b3c9-f2f55dc96f8c'
+  inspections_resource_id = '89082835-f16d-401a-8f99-d35211b6b461'
   headers = { 'Content-Type' =>'application/json', 'Accept' => 'application/json'}
 
   # Query a list of businesses based on body of SMS
