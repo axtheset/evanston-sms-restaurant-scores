@@ -9,7 +9,7 @@ get '/healthscores' do
 
   # Basic setup of api endpoint, datasets and headers for requests
   civic_data_url = 'http://www.civicdata.com/api/action/datastore_search_sql'
-  businesses_resource_id = '31eff031-d40b-4331-838b-826d72869b40'
+  businesses_resource_id = '1c15c579-989f-43cb-b513-67b6e3971990'
   inspections_resource_id = '19426f05-1814-4447-b63b-23c33b3706a7'
   headers = { 'Content-Type' =>'application/json', 'Accept' => 'application/json'}
 
