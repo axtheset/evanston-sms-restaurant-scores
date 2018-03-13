@@ -9,8 +9,8 @@ GEM
     jwt (1.0.0)
     multi_json (1.10.1)
     multi_xml (0.5.5)
-    rack (1.5.2)
-    rack-protection (1.5.3)
+    rack (1.5.4)
+    rack-protection (1.5.5)
       rack
     sinatra (1.4.5)
       rack (~> 1.4)
